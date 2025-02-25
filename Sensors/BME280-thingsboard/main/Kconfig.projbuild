@@ -1,0 +1,97 @@
+menu "Project Configuration"
+
+menu "BME280 Configuration"
+
+config I2C_MASTER_SCL_IO
+    int "I2C Master SCL IO"
+    default 22
+    help
+        GPIO number used for I2C master clock.
+
+config I2C_MASTER_SDA_IO
+    int "I2C Master SDA IO"
+    default 21
+    help
+        GPIO number used for I2C master data.
+
+config I2C_MASTER_NUM
+    int "I2C Master Port Number"
+    default 0
+    help
+        I2C port number for master device.
+
+config I2C_MASTER_FREQ_HZ
+    int "I2C Master Clock Frequency"
+    default 100000
+    help
+        I2C master clock frequency in Hz.
+
+config BME280_I2C_ADDRESS
+    hex "BME280 I2C Address"
+    default 0x76
+    help
+        I2C address for BME280 sensor.
+
+endmenu
+
+menu "ThingsBoard Configuration"
+
+config THINGSBOARD_SERVER
+    string "ThingsBoard Server"
+    default "mqtt://thingsboard.cloud"
+    help
+        The server URL for ThingsBoard.
+
+config THINGSBOARD_PORT
+    int "ThingsBoard Port"
+    default 1883
+    help
+        The port for connecting to ThingsBoard.
+
+config THINGSBOARD_TOKEN
+    string "ThingsBoard Access Token"
+    default "___"
+    help
+        The access token for ThingsBoard authentication.
+
+endmenu
+
+menu "PMS7003 Configuration"
+
+config PMS7003_UART_BAUD_RATE
+    int "UART baud rate"
+    default 9600
+    help
+        The UART baud rate for communicating with the PMS7003 sensor.
+
+config PMS7003_UART_RX_PIN
+    int "UART RX pin"
+    default 16
+    help
+        The RX pin of the UART for communicating with the PMS7003 sensor.
+
+config PMS7003_UART_TX_PIN
+    int "UART TX pin"
+    default 17
+    help
+        The TX pin of the UART for communicating with the PMS7003 sensor.
+config IN_ATMOSPHERIC_MODE
+    bool "Is in atmospheric mode"
+    default y
+    help
+        Enable this option if the PMS7003 sensor should operate in atmospheric mode.
+
+endmenu
+
+menu "Time Configuration" 
+
+config TIME_DELAY_MS
+    int "Time delay"
+    default 5000
+    help
+        Repeat time in milliseconds.
+
+endmenu
+
+
+endmenu
